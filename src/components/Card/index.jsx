@@ -7,6 +7,7 @@ function Card({id,capa,titulo}) {
 
     const { favorito , agregarFavorito} = useFavoritosContext()
 
+      
     const isFavorito = favorito.some(fav => fav.id === id)
 
     return(
@@ -14,7 +15,7 @@ function Card({id,capa,titulo}) {
             <img src={capa} alt={titulo} className={styles.capa} />
             <h2>{titulo} </h2>
             <div>
-                {isFavorito ? <GoHeartFill className={styles.icono}  onClick={ () => console.log('click')}/> : <GoHeart  className={styles.icono}  onClick={ () => console.log('click')}/> }
+                {isFavorito ? <GoHeartFill className={styles.icono}   onClick= { () => agregarFavorito({id,titulo,capa}) }/> : <GoHeart  className={styles.icono}  onClick= { () => agregarFavorito({id,titulo,capa})}/> }
             </div>
             
         </div>
